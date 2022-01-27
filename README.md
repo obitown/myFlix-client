@@ -1,6 +1,7 @@
 # Obi Flix
 
-Allows users to add/remove favorite movies from their Favorite List, and much more!
+Using React, build the client-side for an application called Obi-Flix based on its existing
+server-side code (REST API and database)
 
 # Features
 
