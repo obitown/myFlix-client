@@ -140,7 +140,7 @@
       this[globalName] = mainExports;
     }
   }
-})({"dr7V3":[function(require,module,exports) {
+})({"8aPCZ":[function(require,module,exports) {
 var Refresh = require('react-refresh/runtime');
 Refresh.injectIntoGlobalHook(window);
 window.$RefreshReg$ = function() {
@@ -151,11 +151,11 @@ window.$RefreshSig$ = function() {
     };
 };
 
-},{"react-refresh/runtime":"i1arP"}],"i1arP":[function(require,module,exports) {
+},{"react-refresh/runtime":"ga66M"}],"ga66M":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-refresh-runtime.development.js');
 
-},{"./cjs/react-refresh-runtime.development.js":"cX8r3"}],"cX8r3":[function(require,module,exports) {
+},{"./cjs/react-refresh-runtime.development.js":"e7EzU"}],"e7EzU":[function(require,module,exports) {
 /** @license React v0.9.0
  * react-refresh-runtime.development.js
  *
@@ -618,7 +618,7 @@ module.exports = require('./cjs/react-refresh-runtime.development.js');
     exports.setSignature = setSignature;
 })();
 
-},{}],"5kPyN":[function(require,module,exports) {
+},{}],"iTmsW":[function(require,module,exports) {
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
@@ -970,7 +970,7 @@ _reactDomDefault.default.render(/*#__PURE__*/ _reactDefault.default.createElemen
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"asFX6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kRmfN","./components/main-view/main-view":"2zHas"}],"8xIwr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","react-dom":"gkWJK","./index.scss":"jUTZ8","@parcel/transformer-js/src/esmodule-helpers.js":"cuqH5","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hRHLq","./components/main-view/main-view":"2zHas"}],"8xIwr":[function(require,module,exports) {
 'use strict';
 module.exports = require('./cjs/react-jsx-runtime.development.js');
 
@@ -22728,7 +22728,7 @@ module.exports = require('./cjs/scheduler-tracing.development.js');
     exports.unstable_wrap = unstable_wrap;
 })();
 
-},{}],"jUTZ8":[function() {},{}],"asFX6":[function(require,module,exports) {
+},{}],"jUTZ8":[function() {},{}],"cuqH5":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -22760,7 +22760,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"kRmfN":[function(require,module,exports) {
+},{}],"hRHLq":[function(require,module,exports) {
 "use strict";
 var Refresh = require('react-refresh/runtime');
 function debounce(func, delay) {
@@ -22880,7 +22880,7 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-},{"react-refresh/runtime":"i1arP"}],"2zHas":[function(require,module,exports) {
+},{"react-refresh/runtime":"ga66M"}],"2zHas":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$35bf = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -22905,19 +22905,19 @@ class MainView extends _reactDefault.default.Component {
                     _id: 1,
                     Title: 'Inception',
                     Description: 'desc1...',
-                    ImagePath: '...'
+                    ImagePath: 'https://c.tenor.com/VB72MwFAx4wAAAAC/inception-kukkendare.gif'
                 },
                 {
                     _id: 2,
                     Title: 'The Shawshank Redemption',
                     Description: 'desc2...',
-                    ImagePath: '...'
+                    ImagePath: 'https://c.tenor.com/X47ebguKe8wAAAAM/happy-to-see-you-andy-dufresne.gif'
                 },
                 {
                     _id: 3,
                     Title: 'Gladiator',
                     Description: 'desc3...',
-                    ImagePath: '...'
+                    ImagePath: 'https://c.tenor.com/CLdhkaZu4usAAAAd/thumbs-up.gif'
                 }, 
             ],
             selectedMovie: null
@@ -22977,7 +22977,7 @@ class MainView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","@parcel/transformer-js/src/esmodule-helpers.js":"asFX6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kRmfN","../movie-view/movie-view":"ikZdr"}],"6EiBJ":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"cuqH5","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hRHLq"}],"6EiBJ":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -23018,7 +23018,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"asFX6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kRmfN"}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"cuqH5","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hRHLq"}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -23136,6 +23136,6 @@ class MovieView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"asFX6","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kRmfN"}]},["dr7V3","5kPyN","dLPEP"], "dLPEP", "parcelRequireaec4")
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"cuqH5","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"hRHLq"}]},["8aPCZ","iTmsW","dLPEP"], "dLPEP", "parcelRequireaec4")
 
 //# sourceMappingURL=index.6701a6e1.js.map
