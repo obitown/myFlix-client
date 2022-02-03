@@ -13,10 +13,8 @@ export class MainView extends React.Component {
         };
     }
 
-    componentDidMount() {
-        document.addEventListener('keypress', event => {
-            console.log(event.key);
-        });
+    keypressCallback(event) {
+        console.log(event.key);
     }
 
     componentDidMount() {
@@ -29,7 +27,14 @@ export class MainView extends React.Component {
             .catch(error => {
                 console.log(error);
             });
+            
+        document.addEventListener('keypress', this.keypressCallback);
     }
+
+    componentWillUnmount() {
+        document.removeEventListener('keypress', this.keypressCallback);
+    }
+    
 
     setSelectedMovie(newSelectedMovie) {
         this.setState({
