@@ -29,14 +29,14 @@ export class MainView extends React.Component {
             .catch(error => {
                 console.log(error);
             });
-            
+
         document.addEventListener('keypress', this.keypressCallback);
     }
 
     componentWillUnmount() {
         document.removeEventListener('keypress', this.keypressCallback);
     }
-    
+
     /** When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' *property to that movie */
     setSelectedMovie(movie) {
         this.setState({
