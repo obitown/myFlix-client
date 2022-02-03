@@ -14,10 +14,16 @@ export class MainView extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://obi-flix.herokuapp.com/')
+        document.addEventListener('keypress', event => {
+            console.log(event.key);
+        });
+    }
+
+    componentDidMount() {
+        axios.get('https://obi-flix.herokuapp.com/movies')
             .then(response => {
                 this.setState({
-                    movie: response.data
+                    movies: response.data
                 });
             })
             .catch(error => {
@@ -34,7 +40,7 @@ export class MainView extends React.Component {
     render() {
         const { movies, selectedMovie } = this.state;
 
-        if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+        if (movies.length === 0) return <div className="main-view" />;
 
         return (
             <div className="main-view">
