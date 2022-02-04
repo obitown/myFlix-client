@@ -1,4 +1,5 @@
 import React from "react";
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
     render() {
@@ -7,7 +8,7 @@ export class MovieView extends React.Component {
         return (
             <div className="movie-view">
                 <div className="movie-poster">
-                    <img src={movie.ImageURL} />
+                    <img src={movie.ImageURL} crossOrigin="true"/>
                 </div>
                 <div className="movie-title">
                     <span className="label">Title: </span>

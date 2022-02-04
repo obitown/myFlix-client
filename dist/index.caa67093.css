@@ -1,4 +1,12 @@
 .my-flix {
   color: steelblue;
 }
+img {
+  max-width: 100%;
+  max-height: 400px;
+}
+
+.label {
+  font-weight: 600;
+}
 /*# sourceMappingURL=index.caa67093.css.map */
