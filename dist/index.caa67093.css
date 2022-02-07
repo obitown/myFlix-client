@@ -1,34 +1,9 @@
 .my-flix {
   color: steelblue;
 }
-.mv-1 {
-  max-width: fit-content;
-  max-height: 400px;
-  border: 5px outset purple;
-  margin: 10px;
-}
+
 img {
   max-width: 100%;
   max-height: 400px;
-  border: 5px outset purple;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-.label {
-  font-variant: small-caps;
-  color: purple;
-  font-weight: bold;
-}
-
-.movie-view {
-  margin: 250px;
-  margin-top: 25px;
-  border: 2px solid purple;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #d8d8d8;
 }
 /*# sourceMappingURL=index.caa67093.css.map */
