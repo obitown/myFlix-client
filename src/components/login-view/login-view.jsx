@@ -19,11 +19,23 @@ export function LoginView(props) {
     }
 
     return (
-        <div>
+        <div className='lv-1'>
             <h2>Login</h2>
             <div>
-                <span>Not registered?</span>
-                <button type='submit' onClick={handleClickRegister}>Register</button>
+                <form>
+                    <label className='lv-2'>
+                        Username:
+                        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+                    </label>
+                    <label className='lv-2'>
+                        Password:
+                        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+                    </label>
+                    <button type="submit" onClick={handleSubmit}>Submit</button>
+                </form>
+            </div>
+            <div>
+                <button>Register now</button>
             </div>
         </div>
     );
