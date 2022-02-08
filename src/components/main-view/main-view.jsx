@@ -68,23 +68,20 @@ export class MainView extends React.Component {
         return (
             <div className="main-view">
                 {/* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */}
-                {selectedMovie
-                    ? (
-                        <Row className="justify-content-md-center">
+                <Row className="main-view justify-content-md-center">
+                    {selectedMovie
+                        ? (
                             <Col md={8}>
                                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
                             </Col>
-                        </Row>
-                    )
-                    : (
-                        <Row className="justify-content-md-center">{movies.map(movie => (
-                            <Col md={3}>
+                        )
+                        : movies.map(movie => (
+                            <Col md={4}>
                                 <MovieCard key={movie._id} movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
                             </Col>
-                        ))}
-                        </Row>
-                    )
-                }
+                        ))
+                    }
+                </Row>
             </div>
         );
     }
