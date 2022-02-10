@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 import './movie-view.scss';
 
