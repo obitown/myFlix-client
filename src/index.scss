@@ -1,9 +1,17 @@
 $border: #231880;
 $main-bg: #184080;
 $card-bg: #187480;
-$font-color: #7D8597;
-
-
- * {
+$font-color: #bbbbbb;
+* {
     font-family: 'EB Garamond', serif;
+}
+.card-body {
+    color: $font-color;
+    background-color: $card-bg;
+    border-color: $border;
+    border-radius: 10px;
+}
+.card-title {
+    font-weight: 600;
+    font-style: italic;
 }
