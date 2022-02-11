@@ -24625,7 +24625,6 @@ class MovieCard extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
-                    className: "mv-1",
                     variant: "top",
                     src: movieData.ImageURL,
                     __source: {
