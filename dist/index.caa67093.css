@@ -2,6 +2,22 @@
   font-family: "EB Garamond", serif;
 }
 
+.card-body {
+  background-color: #187480;
+  color: #cfcfcf;
+  border: 2px solid #231880;
+  border-radius: 10px;
+}
+
+.card-img-top {
+  border: 2px solid #231880;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-weight: 600;
+}
+
 img {
   max-width: 100%;
   max-height: 400px;
