@@ -17,7 +17,14 @@
 .card-title {
   font-weight: 600;
 }
-
+.card-img-top {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 75%;
+  padding: 15px;
+  filter: drop-shadow(0 0 0.75rem purple);
+}
 img {
   max-width: 50%;
   max-height: 50%;
