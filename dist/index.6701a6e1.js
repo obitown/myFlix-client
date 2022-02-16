@@ -40223,6 +40223,7 @@ function NavbarView({ user  }) {
         else return false;
     };
     return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar, {
+        bg: "secondary",
         sticky: "top",
         expand: "lg",
         __source: {

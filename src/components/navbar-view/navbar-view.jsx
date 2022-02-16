@@ -21,7 +21,7 @@ export function NavbarView({ user }) {
     };
 
     return (
-        <Navbar sticky="top" expand="lg">
+        <Navbar bg="secondary" sticky="top" expand="lg">
             <Container fluid>
                 <Navbar.Brand href="/">Obi-Flix</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
