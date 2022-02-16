@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
@@ -14,13 +16,23 @@ export class MainView extends React.Component {
         super();
         this.state = {
             movies: [],
-            selectedMovie: null,
             user: null
         };
     }
 
-    keypressCallback(event) {
-        console.log(event.key);
+    getMovies(token) {
+        axios.get('https://obi-flix.herokuapp.com/movies', {
+            headers: { Authorization: `Bearer ${token}` }
+        })
+            .then(response => {
+                // assign the result to the state
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
     }
 
     componentDidMount() {
@@ -31,17 +43,6 @@ export class MainView extends React.Component {
             });
             this.getMovies(accessToken);
         }
-    }
-
-    componentWillUnmount() {
-        document.removeEventListener('keypress', this.keypressCallback);
-    }
-
-    /** When a movie is clicked, this function is invoked and updates the state of the 'selectedMovie' *property to that movie */
-    setSelectedMovie(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
     }
 
     /** When a user successfully logs in, this function updates the 'user' property in state to that *particular user */
@@ -64,52 +65,55 @@ export class MainView extends React.Component {
         });
     }
 
-    getMovies(token) {
-        axios.get('https://obi-flix.herokuapp.com/movies', {
-            headers: { Authorization: `Bearer ${token}` }
-        })
-            .then(response => {
-                // assign the result to the state
-                this.setState({
-                    movies: response.data
-                });
-            })
-            .catch(function (error) {
-                console.log(error);
-            })
-    }
-
     render() {
         const { movies, selectedMovie, user } = this.state;
 
         /** If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView */
-        if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+        if (!user) return <Row>
+            <Col>
+                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+            </Col>
+        </Row>
 
         // Before the movies have been loaded
         if (movies.length === 0) return <div className="main-view" />;
 
         return (
-            <div className="main-view">
-                {/* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */}
+
+            <Router>
                 <Row className="main-view justify-content-md-center">
-                    {selectedMovie
-                        ? (
-                            <Col md={8}>
-                                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                            </Col>
-                        )
-                        : movies.map(movie => (
-                            <Col md={4} key={movie._id}>
-                                <MovieCard movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+                    <Route exact path="/" render={() => {
+
+                        return movies.map(m => (
+                            <Col md={3} key={m._id}>
+                                <MovieCard movie={m} />
                             </Col>
                         ))
-                    }
+                    }} />
+                    <Route path="/movies/:movieId" render={({ match }) => {
+                        return <Col md={8}>
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                        </Col>
+                    }} />
+                    <Button onClick={() => { this.onLoggedOut() }}>Log Out</Button>
                 </Row>
-
-                <Button onClick={() => { this.onLoggedOut() }}>Log Out</Button>
-
-            </div>
-
+            </Router>
         );
     }
 }
+
+// {/* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */}
+// <Row className="main-view justify-content-md-center">
+// {selectedMovie
+//     ? (
+//         <Col md={8}>
+//             <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+//         </Col>
+//     )
+//     : movies.map(movie => (
+//         <Col md={4} key={movie._id}>
+//             <MovieCard movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+//         </Col>
+//     ))
+// }
+// </Row>
