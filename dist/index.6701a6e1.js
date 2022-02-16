@@ -22952,7 +22952,7 @@ class MainView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { movies , selectedMovie , user  } = this.state;
+        const { movies , user  } = this.state;
         /** If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView */ // if (!user) return (
         //     <Row>
         //         <Col>
@@ -22962,46 +22962,60 @@ class MainView extends _reactDefault.default.Component {
         // );
         // Before the movies have been loaded
         // if (movies.length === 0) return <div className="main-view" />;
-        return(/* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */ /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.BrowserRouter, {
+        return(/* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */ /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.BrowserRouter, {
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
                 lineNumber: 85
             },
             __self: this,
-            children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                className: "main-view justify-content-md-center",
-                __source: {
-                    fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 87
-                },
-                __self: this,
-                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
-                    exact: true,
-                    path: "/",
-                    render: ()=>{
-                        if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-                                onLoggedIn: (user1)=>this.onLoggedIn(user1)
-                            })
-                        }));
-                        if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-                            className: "main-view"
-                        }));
-                        return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
-                                md: 3,
-                                children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                                    movie: m
-                                })
-                            }, m._id)
-                        );
-                    },
+            children: [
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                    className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 88
+                        lineNumber: 87
                     },
-                    __self: this
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
+                        exact: true,
+                        path: "/",
+                        render: ()=>{
+                            // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView 
+                            if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
+                                    onLoggedIn: (user1)=>this.onLoggedIn(user1)
+                                })
+                            }));
+                            // Before the movies have been loaded
+                            if (movies.length === 0) return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                className: "main-view"
+                            }));
+                            return movies.map((m)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                                    md: 3,
+                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
+                                        movie: m
+                                    })
+                                }, m._id)
+                            );
+                        },
+                        __source: {
+                            fileName: "src/components/main-view/main-view.jsx",
+                            lineNumber: 88
+                        },
+                        __self: this
+                    })
+                }),
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                    onClick: ()=>this.onLoggedOut()
+                    ,
+                    __source: {
+                        fileName: "src/components/main-view/main-view.jsx",
+                        lineNumber: 105
+                    },
+                    __self: this,
+                    children: "Log Out"
                 })
-            })
+            ]
         }));
     }
 }
