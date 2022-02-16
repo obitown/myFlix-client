@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+
 import { Form, Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
@@ -107,3 +109,11 @@ export function LoginView(props) {
 
     );
 }
+
+LoginView.propTypes = {
+    user: PropTypes.shape({
+        username: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired
+    }),
+    onLoggedIn: PropTypes.func.isRequired,
+};
