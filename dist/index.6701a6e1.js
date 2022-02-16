@@ -22953,6 +22953,20 @@ class MainView extends _reactDefault.default.Component {
         localStorage.setItem('user', authData.user.Username);
         this.getMovies(authData.token);
     }
+    getMovies(token) {
+        _axiosDefault.default.get('https://obi-flix.herokuapp.com/movies', {
+            headers: {
+                Authorization: 'Bearer ${token}'
+            }
+        }).then((response)=>{
+            // assign the result to the state
+            this.setState({
+                movies: response.data
+            });
+        }).catch(function(error) {
+            console.log(error);
+        });
+    }
     render() {
         const { movies , selectedMovie , user  } = this.state;
         /** If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView */ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
@@ -22960,7 +22974,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 68
+                lineNumber: 83
             },
             __self: this
         }));
@@ -22969,7 +22983,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 71
+                lineNumber: 86
             },
             __self: this
         }));
@@ -22977,21 +22991,21 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 74
+                lineNumber: 89
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
                 className: "main-view justify-content-md-center",
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 76
+                    lineNumber: 91
                 },
                 __self: this,
                 children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
                     md: 8,
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 79
+                        lineNumber: 94
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -23001,7 +23015,7 @@ class MainView extends _reactDefault.default.Component {
                         },
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 80
+                            lineNumber: 95
                         },
                         __self: this
                     })
@@ -23009,7 +23023,7 @@ class MainView extends _reactDefault.default.Component {
                         md: 4,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
-                            lineNumber: 84
+                            lineNumber: 99
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -23019,7 +23033,7 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
-                                lineNumber: 85
+                                lineNumber: 100
                             },
                             __self: this
                         })
