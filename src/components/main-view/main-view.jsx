@@ -24,17 +24,13 @@ export class MainView extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('https://obi-flix.herokuapp.com/movies')
-            .then(response => {
-                this.setState({
-                    movies: response.data
-                });
-            })
-            .catch(error => {
-                console.log(error);
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
+            this.setState({
+                user: localStorage.getItem('user')
             });
-
-        document.addEventListener('keypress', this.keypressCallback);
+            this.getMovies(accessToken);
+        }
     }
 
     componentWillUnmount() {
@@ -62,7 +58,7 @@ export class MainView extends React.Component {
 
     getMovies(token) {
         axios.get('https://obi-flix.herokuapp.com/movies', {
-            headers: { Authorization: 'Bearer ${token}' }
+            headers: { Authorization: `Bearer ${token}` }
         })
             .then(response => {
                 // assign the result to the state
@@ -74,7 +70,6 @@ export class MainView extends React.Component {
                 console.log(error);
             })
     }
-
 
     render() {
         const { movies, selectedMovie, user } = this.state;
@@ -106,4 +101,3 @@ export class MainView extends React.Component {
         );
     }
 }
-
