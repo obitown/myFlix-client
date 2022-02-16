@@ -1,82 +1,97 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 import PropTypes from 'prop-types';
 
-import './registration-view.scss';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container, CardGroup, Card } from "react-bootstrap";
 
-export function RegistrationView(props) {
-    // Shorthands used with { useState } Reat Hook 
-    // https://reactjs.org/docs/hooks-state.html
+
+export function LoginView(props) {
     const [username, setUsername] = useState('');
-    const [password1, setPassword1] = useState('');
-    const [password2, setPassword2] = useState('');
+    const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [birthday, setBirthday] = useState('');
 
-    // Modify state of MainView to be registered and logged in with new user
+    // declare hook for each input
+    const [usernameErr, setUsernameErr] = useState('');
+    const [passwordErr, setPasswordErr] = useState('');
+    const [emailErr, setEmailErr] = useState('');
+
+    // validate user inputs
+    const validate = () => {
+        let isReq = true;
+
+        if (!username) {
+            setUsernameErr('Username required');
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr('Username must be at LEAST 2 characters long');
+            isReq = false;
+        }
+
+        if (!password) {
+            setPasswordErr('Password is required');
+            isReq = false;
+        } else if (password.length < 6) {
+            setPasswordErr('Password must be at LEAST 6 characters long');
+            isReq = false;
+        }
+
+        if (!email) {
+            setEmailErr('Email is required');
+            isReq = false;
+        } else if (email.indexOf('@') === -1) {
+            setPasswordErr('Must be a valid email');
+            isReq = false;
+        }
+
+        return isReq;
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.onRegister(true, username);
+        console.log(username, password);
+        // Send a request to the server for authentication, then call props.onLoggedIn(username)
+        axios.post('https://obi-flix.herokuapp.com/users', {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        })
+            .then(response => {
+                const data = response.data;
+                console.log(data);
+                alert('You registered successfully!')
+                window.open('/', '_self');
+            })
+            .catch(e => {
+                console.error(response);
+                alert('unable to register');
+            });
     };
 
     return (
-        <div>
-            <h2>Sign up for a free Obi-Flix account:</h2>
-
-            <Form>
-
-                <Form.Group>
-                    <Form.Label>
-                        Username:
-                    </Form.Label>
-                    <Form.Control
-                        type="text"
-                        value={username} onChange={e => setUsername(e.target.value)} />
-                    <Form.Text>5+ characters, no spaces</Form.Text>
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>
-                        Enter desired password:
-                    </Form.Label>
-                    <Form.Control type="text" value={password1} onChange={e => setPassword1(e.target.value)} />
-                    <Form.Text>must not be blank</Form.Text>
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>
-                        Re-enter password:
-                    </Form.Label>
-                    <Form.Control type="text" value={password2} onChange={e => setPassword2(e.target.value)} />
-                    <Form.Text>passwords must match</Form.Text>
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>
-                        Email:
-                    </Form.Label>
-                    <Form.Control type="text" value={email} onChange={e => setEmail(e.target.value)} />
-                    <Form.Text>required</Form.Text>
-                </Form.Group>
-
-                <Form.Group>
-                    <Form.Label>
-                        Birthday:
-                    </Form.Label>
-                    <Form.Control type="text" value={birthday} onChange={e => setBirthday(e.target.value)} />
-                    <Form.Text>optional</Form.Text>
-                </Form.Group>
-
-
-                <Button type="submit" onClick={handleSubmit}>Register</Button>
-            </Form>
-
-        </div>
-    )
+        <Container fluid>
+            <Row>
+                <CardGroup>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Register</Card.Title>
+                            <Form>
+                                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+                            </Form>
+                        </Card.Body>
+                    </Card>
+                </CardGroup>
+            </Row>
+        </Container>
+    );
 }
 
-// prop-types
-// Give informational warnings in browser if data does not match required shape
 RegistrationView.propTypes = {
-    onRegister: PropTypes.func.isRequired
+    register: PropTypes.shape({
+        Username: PropTypes.string.isRequired,
+        Password: PropTypes.string.isRequired,
+        Email: PropTypes.string.isRequired,
+    }),
+    onRegistration: PropTypes.func,
 };

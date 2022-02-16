@@ -8,6 +8,7 @@ import { MovieView } from '../movie-view/movie-view';
 //bootstrap components
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Button } from 'react-bootstrap';
 
 export class MainView extends React.Component {
     constructor() {
@@ -56,6 +57,14 @@ export class MainView extends React.Component {
         this.getMovies(authData.token);
     }
 
+    onLoggedOut() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        this.setState({
+            user: null
+        });
+    }
+
     getMovies(token) {
         axios.get('https://obi-flix.herokuapp.com/movies', {
             headers: { Authorization: `Bearer ${token}` }
@@ -97,7 +106,11 @@ export class MainView extends React.Component {
                         ))
                     }
                 </Row>
+
+                <Button onClick={() => { this.onLoggedOut() }}>Log Out</Button>
+
             </div>
+
         );
     }
 }
