@@ -68,22 +68,8 @@ export class MainView extends React.Component {
     render() {
         const { movies, user } = this.state;
 
-        /** If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView */
-        // if (!user) return (
-        //     <Row>
-        //         <Col>
-        //             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-        //         </Col>
-        //     </Row>
-        // );
-
-        // Before the movies have been loaded
-        // if (movies.length === 0) return <div className="main-view" />;
-
         return (
-            /* if the state of 'selectedMovie' is not null, that selected movie will be returned otherwise, all *movies will be returned */
             <Router>
-
                 <Row className="main-view justify-content-md-center">
                     <Route exact path="/" render={() => {
                         // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView 
@@ -101,6 +87,31 @@ export class MainView extends React.Component {
                         ))
 
                     }} />
+                    <Route path="/movies/:movieId" render={({ match }) => {
+                        // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView 
+                        if (!user) return (
+                            <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                        );
+                        // Before the movies have been loaded
+                        if (movies.length === 0) return <div className="main-view" />;
+                        return (
+                            <Col md={8}>
+                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+                            </Col>
+                        )
+                    }} />
+                    <Route path="/register" render={() => {
+                        if (user) {
+                            return <Redirect to="/" />;
+                        }
+                        return (
+                            <Col>
+                                <RegistrationView />
+                            </Col>
+                        )
+                    }} />
                 </Row>
                 <Button onClick={() => this.onLoggedOut()}>Log Out</Button>
 
@@ -111,28 +122,6 @@ export class MainView extends React.Component {
 }
 
 
-// <Row className="main-view justify-content-md-center">
-//     {selectedMovie
-//         ? (
-//             <Col md={8}>
-//                 <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-//             </Col>
-//         )
-//         : movies.map(movie => (
-//             <Col md={4} key={movie._id}>
-//                 <MovieCard movieData={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
-//             </Col>
-//         ))
-//     }
-// </Row>
-
-{/* <Route path="/movies/:movieId" render={({ match }) => {
-                        return (
-                            <Col md={8}>
-                                <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
-                            </Col>
-                        )
-                    }} /> */}
 
 {/* <Route path="/directors/:name" render={({ match }) => {
                         if (movies.length === 0) return <div className='main-view' />;

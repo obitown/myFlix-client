@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from 'prop-types';
 
-import { Form, Button, Container, CardGroup, Card } from "react-bootstrap";
+import { Form, Button, Container, CardGroup, Card, Row } from "react-bootstrap";
 
 
 export function RegistrationView(props) {
@@ -49,28 +49,31 @@ export function RegistrationView(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const isReq = validate();
         console.log(username, password);
         // Send a request to the server for authentication, then call props.onLoggedIn(username)
-        axios.post('https://obi-flix.herokuapp.com/users', {
-            Username: username,
-            Password: password,
-            Email: email,
-            Birthday: birthday
-        })
-            .then(response => {
-                const data = response.data;
-                console.log(data);
-                alert('You registered successfully!')
-                window.open('/', '_self');
+        if (isReq) {
+            axios.post('https://obi-flix.herokuapp.com/users', {
+                Username: username,
+                Password: password,
+                Email: email,
+                Birthday: birthday
             })
-            .catch(e => {
-                console.error(response);
-                alert('unable to register');
-            });
+                .then(response => {
+                    const data = response.data;
+                    console.log(data);
+                    alert('You registered successfully!')
+                    window.open('/', '_self');
+                })
+                .catch(e => {
+                    console.error(response);
+                    alert('unable to register');
+                });
+        }
     };
 
     return (
-        <Container fluid>
+        <Container>
             <Row>
                 <CardGroup>
                     <Card>

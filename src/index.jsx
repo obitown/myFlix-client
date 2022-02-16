@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 
 import { MainView } from './components/main-view/main-view';
 
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 // import statement to indicate that you need bundle './index.scss'
 import './index.scss';

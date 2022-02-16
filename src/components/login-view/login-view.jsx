@@ -95,11 +95,11 @@ export function LoginView(props) {
                                 <Button onClick={handleSubmit} variant="primary" type="submit">
                                     Submit
                                 </Button>
-                                {/* <div>
-                                    <Link to="/register">
-                                        < Button > Register</Button>
-                                    </Link>
-                                </div> */}
+
+                                <Link to="/register">
+                                    <Button>Register</Button>
+                                </Link>
+
 
                             </Form>
                         </Card.Body>
