@@ -3,6 +3,7 @@ import axios from 'axios';
 
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+import { NavbarView } from '../navbar-view/navbar-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
@@ -70,6 +71,7 @@ export class MainView extends React.Component {
 
         return (
             <Router>
+                <NavbarView />
                 <Row className="main-view justify-content-md-center">
                     <Route exact path="/" render={() => {
                         // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView 
@@ -81,9 +83,10 @@ export class MainView extends React.Component {
                         // Before the movies have been loaded
                         if (movies.length === 0) return <div className="main-view" />;
                         return movies.map(m => (
-                            <Col md={3} key={m._id}>
+                            <Col md={4} key={m._id}>
                                 <MovieCard movie={m} />
                             </Col>
+
                         ))
 
                     }} />
@@ -113,8 +116,6 @@ export class MainView extends React.Component {
                         )
                     }} />
                 </Row>
-                <Button onClick={() => this.onLoggedOut()}>Log Out</Button>
-
 
             </Router>
         );

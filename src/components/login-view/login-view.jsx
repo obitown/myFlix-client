@@ -56,14 +56,8 @@ export function LoginView(props) {
         }
     };
 
-    const handleClickRegister = (e) => {
-        e.preventDefault();
-
-        props.toRegistrationView('');
-    }
-
     return (
-        <Container fluid>
+        <Container>
             <Row>
                 <Col>
                     <Card>
