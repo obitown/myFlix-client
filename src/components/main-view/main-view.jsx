@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { NavbarView } from '../navbar-view/navbar-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -9,6 +9,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 
 //bootstrap components
@@ -134,6 +135,22 @@ export class MainView extends React.Component {
                                     director={movies.find(m => m.Director.Name === match.params.name).Director} />
                             </Col>
                         )
+                    }} />
+
+                    <Route path="/profile" render={({ history }) => {
+                        if (!user) {
+                            return (
+                                <Col>
+                                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                                </Col>
+                            );
+                        }
+
+                        return (
+                            <Col md={8}>
+                                <ProfileView movies={movies} onBackClick={() => history.goBack()} />
+                            </Col>
+                        );
                     }} />
 
 
