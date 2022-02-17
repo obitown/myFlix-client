@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 
 export class DirectorView extends React.Component {
     render() {
@@ -22,11 +22,6 @@ export class DirectorView extends React.Component {
                             <span>Birth: </span>
                             <span>{director.Birth}</span>
                         </Card.Text>
-                        <Card.Text>
-                            <span>Death: </span>
-                            <span>{director.Death}</span>
-                        </Card.Text>
-
                     </Card.Body>
                 </Card>
             </Container>
