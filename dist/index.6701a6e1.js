@@ -24727,18 +24727,6 @@ class MovieCard extends _reactDefault.default.Component {
                                 " "
                             ]
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Text, {
-                            __source: {
-                                fileName: "src/components/movie-card/movie-card.jsx",
-                                lineNumber: 26
-                            },
-                            __self: this,
-                            children: [
-                                " ",
-                                movie.Description,
-                                " "
-                            ]
-                        }),
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
                             to: `/movies/${movie._id}`,
                             __source: {
