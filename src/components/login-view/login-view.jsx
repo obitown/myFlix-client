@@ -93,8 +93,6 @@ export function LoginView(props) {
                                 <Link to="/register">
                                     <Button>Register</Button>
                                 </Link>
-
-
                             </Form>
                         </Card.Body>
                     </Card>

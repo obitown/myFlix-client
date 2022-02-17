@@ -21,7 +21,7 @@ export function NavbarView({ user }) {
     };
 
     return (
-        <Navbar bg="secondary" sticky="top" expand="lg">
+        <Navbar variant="dark" bg="dark" sticky="top" expand="lg">
             <Container fluid>
                 <Navbar.Brand href="/">Obi-Flix</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -31,7 +31,7 @@ export function NavbarView({ user }) {
                             <Nav.Link href="/profile">{user}</Nav.Link>
                         )}
                         {isAuth() && (
-                            <Button variant="link" onClick={() => {
+                            <Button variant="dark" onClick={() => {
                                 onLoggedOut()
                             }}>Logout</Button>
                         )}
