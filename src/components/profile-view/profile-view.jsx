@@ -216,7 +216,7 @@ export class ProfileView extends React.Component {
                                             onChange={(e) => this.setBirthday(e.target.value)}
                                         />
                                     </Form.Group>
-                                    <div className="mt-3">
+                                    <div>
                                         <Button type="submit" onClick={this.editUser}>Update User</Button>
                                         <Button variant="secondary" onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
@@ -227,43 +227,41 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row style={{ marginTop: "20px" }}>
                     <Col>
-                        <h4>{Username} Favorite Movies</h4>
+                        <h4>{Username}'s Favorite Movies</h4>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <Card.Body>
-                            {FavoriteMovies.length === 0 && (
-                                <div className="text-center">No Favorite Movies</div>
-                            )}
-                            <Row className="favorite-container">
-                                {FavoriteMovies.length > 0 &&
-                                    movies.map((movie) => {
-                                        if (
-                                            movie._id ===
-                                            FavoriteMovies.find((fav) => fav === movie._id)
-                                        ) {
-                                            return (
-                                                <Card key={movie._id} >
-                                                    <Card.Img
-                                                        className="poster"
-                                                        variant="top"
-                                                        src={movie.ImageURL}
-                                                    />
-                                                    <Card.Body>
-                                                        <Card.Title>
-                                                            {movie.Title}
-                                                        </Card.Title>
-                                                        <Button variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
-                                                    </Card.Body>
-                                                </Card>
-                                            );
-                                        }
-                                    })}
-                            </Row>
-                        </Card.Body>
-                    </Col>
-                </Row>
+
+                <Card.Body sm={4}>
+                    {FavoriteMovies.length === 0 && (
+                        <div className="text-center">No Favorite Movies</div>
+                    )}
+
+                    {FavoriteMovies.length > 0 &&
+                        movies.map((movie) => {
+                            if (
+                                movie._id ===
+                                FavoriteMovies.find((fav) => fav === movie._id)
+                            ) {
+                                return (
+                                    <Card key={movie._id} >
+                                        <Card.Img
+                                            className="poster"
+                                            variant="top"
+                                            src={movie.ImageURL}
+                                        />
+                                        <Card.Body>
+                                            <Card.Title>
+                                                {movie.Title}
+                                            </Card.Title>
+                                            <Button variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
+                                        </Card.Body>
+                                    </Card>
+                                );
+                            }
+                        })}
+
+                </Card.Body>
+
                 <div className="backButton">
                     <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
                 </div>
