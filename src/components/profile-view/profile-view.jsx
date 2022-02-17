@@ -1,8 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+
 import './profile-view.scss';
-import { Link } from 'react-router-dom';
+
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
@@ -34,10 +35,9 @@ export class ProfileView extends React.Component {
 
     getUser = (token) => {
         const Username = localStorage.getItem('user');
-        axios
-            .get(`https://obi-flix.herokuapp.com/users/${Username}`, {
-                headers: { Authorization: `Bearer ${token}` },
-            })
+        axios.get(`https://obi-flix.herokuapp.com/users/${Username}`, {
+            headers: { Authorization: `Bearer ${token}` },
+        })
             .then((response) => {
                 this.setState({
                     Username: response.data.Username,
@@ -57,19 +57,13 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios
-            .put(
-                `https://obi-flix.herokuapp.com/users/${Username}`,
-                {
-                    Username: this.state.Username,
-                    Password: this.state.Password,
-                    Email: this.state.Email,
-                    Birthday: this.state.Birthday,
-                },
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
+        axios.put(`https://obi-flix.herokuapp.com/users/${Username}`, {
+            Username: this.state.Username,
+            Password: this.state.Password,
+            Email: this.state.Email,
+            Birthday: this.state.Birthday
+        }, { headers: { Authorization: `Bearer ${token}` } }
+        )
             .then((response) => {
                 this.setState({
                     Username: response.data.Username,
@@ -93,13 +87,9 @@ export class ProfileView extends React.Component {
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
 
-        axios
-            .delete(
-                `https://obi-flix.herokuapp.com/users/${Username}/movies/${movie._id}`,
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
-            )
+        axios.delete(`https://obi-flix.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+            headers: { Authorization: `Bearer ${token}` }
+        })
             .then((response) => {
                 console.log(response);
                 alert("Movie removed");
@@ -227,8 +217,8 @@ export class ProfileView extends React.Component {
                                         />
                                     </Form.Group>
                                     <div className="mt-3">
-                                        <Button variant="success" type="submit" onClick={this.editUser}>Update User</Button>
-                                        <Button className="ml-3" variant="secondary" onClick={() => this.onDeleteUser()}>Delete User</Button>
+                                        <Button type="submit" onClick={this.editUser}>Update User</Button>
+                                        <Button variant="secondary" onClick={() => this.onDeleteUser()}>Delete User</Button>
                                     </div>
                                 </Form>
                             </Card.Body>
@@ -254,9 +244,9 @@ export class ProfileView extends React.Component {
                                             FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
-                                                <Card className="favorite-movie card-content" key={movie._id} >
+                                                <Card key={movie._id} >
                                                     <Card.Img
-                                                        className="fav-poster"
+                                                        className="poster"
                                                         variant="top"
                                                         src={movie.ImageURL}
                                                     />
@@ -264,7 +254,7 @@ export class ProfileView extends React.Component {
                                                         <Card.Title>
                                                             {movie.Title}
                                                         </Card.Title>
-                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
+                                                        <Button variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
                                                     </Card.Body>
                                                 </Card>
                                             );

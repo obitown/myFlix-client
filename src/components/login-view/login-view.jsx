@@ -51,6 +51,7 @@ export function LoginView(props) {
                     props.onLoggedIn(data);
                 })
                 .catch(e => {
+                    alert("No Such User");
                     console.log('no such user')
                 })
         }
