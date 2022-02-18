@@ -4,7 +4,7 @@ import { Container, Card, Button } from "react-bootstrap";
 
 export class DirectorView extends React.Component {
     render() {
-        const { director } = this.props;
+        const { director, onBackClick } = this.props;
 
         return (
             <Container>
@@ -22,6 +22,7 @@ export class DirectorView extends React.Component {
                             <span>Birth: </span>
                             <span>{director.Birth}</span>
                         </Card.Text>
+                        <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
                     </Card.Body>
                 </Card>
             </Container>

@@ -92,7 +92,7 @@ export function LoginView(props) {
                                 </Button>
 
                                 <Link to="/register">
-                                    <Button>Register</Button>
+                                    <Button style={{ margin: "20px" }}>Register</Button>
                                 </Link>
                             </Form>
                         </Card.Body>

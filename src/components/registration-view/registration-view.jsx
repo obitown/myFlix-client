@@ -40,7 +40,7 @@ export function RegistrationView(props) {
             setEmailErr('Email is required');
             isReq = false;
         } else if (email.indexOf('@') === -1) {
-            setPasswordErr('Must be a valid email');
+            setEmailErr('Must be a valid email');
             isReq = false;
         }
 
