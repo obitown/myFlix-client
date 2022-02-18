@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
 import { Button, Card } from "react-bootstrap";
 
 import './movie-view.scss';
@@ -11,28 +12,34 @@ export class MovieView extends React.Component {
         return (
             <Card>
                 <Card.Body>
-                    <div className="movie-view">
-                        <div className="movie-poster">
-                            <img src={movie.ImageURL} crossOrigin="true" />
-                        </div>
-                        <div className="movie-title">
-                            <span className="label">Title: </span>
-                            <span className="value">{movie.Title}</span>
-                        </div>
-                        <div className="movie-director">
-                            <span className="label">Director: </span>
-                            <span className="value">{movie.Director.Name}</span>
-                        </div>
-                        <div className="movie-description">
-                            <span className="label">Description: </span>
-                            <span className="value">{movie.Description}</span>
-                        </div>
-                        <Button onClick={() => { onBackClick(null); }}>Back</Button>
-                    </div>
+
+                    <Card.Text className="movie-poster">
+                        <img src={movie.ImageURL} crossOrigin="true" />
+                    </Card.Text>
+                    <Card.Text className="movie-title">
+                        <span className="label">Title: </span>
+                        <span className="value">{movie.Title}</span>
+                    </Card.Text>
+                    <Card.Text className="movie-director">
+                        <span className="label">Director: </span>
+                        <span className="value">
+                            <Link to={`/directors/${movie.Director.Name}`} >{movie.Director.Name}</Link>
+                        </span>
+                    </Card.Text>
+                    <Card.Text className="movie-genre">
+                        <span className="label">Genre: </span>
+                        <span className="value">
+                            <Link to={`/genres/${movie.Genre.Name}`}>{movie.Genre.Name}</Link>
+                        </span>
+                    </Card.Text>
+                    <Card.Text className="movie-description">
+                        <span className="label">Description: </span>
+                        <span className="value">{movie.Description}</span>
+                    </Card.Text>
+
+                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
                 </Card.Body>
             </Card>
-
-
         );
     }
 }
