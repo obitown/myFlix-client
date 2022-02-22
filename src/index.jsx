@@ -1,16 +1,16 @@
 import React from 'react';
-
 import ReactDOM from 'react-dom';
+
+import { Container } from 'react-bootstrap';
 
 //redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import moviesApp from './reducers/reducers';
+
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
 import { MainView } from './components/main-view/main-view';
-
-import { Container, Row } from 'react-bootstrap';
 
 // import statement to indicate that you need bundle './index.scss'
 import './index.scss';
