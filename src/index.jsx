@@ -19,6 +19,7 @@ const store = createStore(movieApp, devToolsEnhancer());
 
 // main component (will eventually use all the others)
 class MyFlixApplication extends React.Component {
+
     render() {
         return (
             <Provider store={store}>
