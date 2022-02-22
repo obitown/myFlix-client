@@ -43187,11 +43187,11 @@ function visibilityFilter(state = '', action) {
 //         movies: movies(state.movies, action)
 //     }
 // }
-const movieApp = _redux.combineReducers({
+const moviesApp = _redux.combineReducers({
     visibilityFilter,
     movies
 });
-exports.default = movieApp;
+exports.default = moviesApp;
 
 },{"redux":"4d0QS","../actions/actions":"1Ttfj","@parcel/transformer-js/src/esmodule-helpers.js":"asFX6"}],"1Ttfj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");

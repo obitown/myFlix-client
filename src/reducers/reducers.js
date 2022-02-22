@@ -27,9 +27,9 @@ function visibilityFilter(state = '', action) {
 //     }
 // }
 
-const movieApp = combineReducers({
+const moviesApp = combineReducers({
     visibilityFilter,
     movies
 });
 
-export default movieApp;
+export default moviesApp;
