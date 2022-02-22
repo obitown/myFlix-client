@@ -10,8 +10,7 @@ import { setMovies } from '../../actions/actions';
 
 // we havent written this one yet
 // import MoviesList from '../movies-list/movies-list';
-
-import { MovieCard } from '../movie-card/movie-card';
+import MovieList from '../movies-list/movies-list';
 import { NavbarView } from '../navbar-view/navbar-view';
 import { MovieView } from '../movie-view/movie-view';
 import { LoginView } from '../login-view/login-view';
