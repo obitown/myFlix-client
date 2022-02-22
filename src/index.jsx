@@ -10,7 +10,7 @@ import moviesApp from './reducers/reducers';
 
 import { devToolsEnhancer } from 'redux-devtools-extension';
 
-import { MainView } from './components/main-view/main-view';
+import MainView from './components/main-view/main-view';
 
 // import statement to indicate that you need bundle './index.scss'
 import './index.scss';
