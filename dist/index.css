@@ -1,4 +1,21 @@
-.my-flix {
-  color: steelblue;
+.card-img-top {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 75%;
+  padding: 15px;
+}
+img {
+  max-width: 50%;
+  max-height: 50%;
+}
+
+
+* {
+  font-family: "EB Garamond", serif;
+}
+
+.card-title {
+  font-weight: 600;
 }
 /*# sourceMappingURL=index.css.map */
