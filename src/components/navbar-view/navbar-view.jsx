@@ -42,7 +42,9 @@ export function NavbarView({ user }) {
                             <Nav.Link href="/">Login</Nav.Link>
                         )}
                         {!isAuth() && (
-                            <Nav.Link href="/register">Register</Nav.Link>
+                            <Link to="/register">
+                                <Button variant="dark">Register</Button>
+                            </Link>
                         )}
                     </Nav>
                 </Navbar.Collapse>
