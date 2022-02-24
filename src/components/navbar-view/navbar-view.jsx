@@ -29,7 +29,9 @@ export function NavbarView({ user }) {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ml-auto">
                         {isAuth() && (
-                            <Nav.Link href="/profile">Profile</Nav.Link>
+                            <Link to="/profile">
+                                <Button variant="dark">Profile</Button>
+                            </Link>
                         )}
                         {isAuth() && (
                             <Button variant="dark" onClick={() => {
