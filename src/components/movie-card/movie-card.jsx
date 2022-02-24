@@ -11,7 +11,6 @@ import './movie-card.scss';
 
 
 import './movie-card.scss';
-import { Card } from "react-bootstrap";
 
 export class MovieCard extends React.Component {
     render() {
