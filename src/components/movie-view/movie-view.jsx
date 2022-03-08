@@ -28,8 +28,6 @@ export class MovieView extends React.Component {
                     console.log(error);
                 });
         };
-
-
         return (
             <Card>
                 <Card.Body>
