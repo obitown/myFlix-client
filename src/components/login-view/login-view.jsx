@@ -88,7 +88,7 @@ export function LoginView(props) {
                                 </Form.Group>
 
                                 <Button onClick={handleSubmit} variant="primary" type="submit">
-                                    Submit
+                                    Sign In
                                 </Button>
 
                                 <Link to="/register">
