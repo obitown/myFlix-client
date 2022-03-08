@@ -16,6 +16,7 @@ export class MovieCard extends React.Component {
     render() {
         const { movie } = this.props;
 
+
         return (
             <Card>
                 <Card.Img variant="top" src={movie.ImageURL} />
@@ -24,6 +25,7 @@ export class MovieCard extends React.Component {
                     <Link to={`/movies/${movie._id}`}>
                         <Button variant="primary">Open</Button>
                     </Link>
+
 
                 </Card.Body>
             </Card>
