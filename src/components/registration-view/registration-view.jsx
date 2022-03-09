@@ -87,7 +87,7 @@ export function RegistrationView(props) {
                                 onChange={e => setUsername(e.target.value)}
                                 placeholder="Enter username" />
                             {/* code added here to display validation error */}
-                            {usernameErr && <p>{usernameErr}</p>}
+                            {usernameErr && <font color="red"><p>{usernameErr}</p></font>}
                         </Form.Group>
 
                         <Form.Group>
@@ -99,7 +99,7 @@ export function RegistrationView(props) {
                                 minLength="8"
                                 placeholder="Your password must be 8 or more characters" />
                             {/* code added here to display validation error */}
-                            {passwordErr && <p>{passwordErr}</p>}
+                            {passwordErr && <font color="red"><p>{passwordErr}</p></font>}
                         </Form.Group>
 
                         <Form.Group>
@@ -110,7 +110,7 @@ export function RegistrationView(props) {
                                 onChange={e => setEmail(e.target.value)}
                                 placeholder="Enter email" />
                             {/* code added here to display validation error */}
-                            {emailErr && <p>{emailErr}</p>}
+                            {emailErr && <font color="red"><p>{emailErr}</p></font>}
                         </Form.Group>
 
                         <Form.Group>

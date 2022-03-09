@@ -73,7 +73,7 @@ export function LoginView(props) {
                                         required
                                         placeholder="Enter Username" />
                                     {/* code added here to display validattion error */}
-                                    {usernameErr && <p>{usernameErr}</p>}
+                                    {usernameErr && <font color="red"><p>{usernameErr}</p></font>}
                                 </Form.Group>
 
                                 <Form.Group controlId="formPassword">
@@ -84,7 +84,7 @@ export function LoginView(props) {
                                         required
                                         placeholder="Password" />
                                     {/* code added here to display validattion error */}
-                                    {passwordErr && <p>{passwordErr}</p>}
+                                    {passwordErr && <font color="red"><p>{passwordErr}</p></font>}
                                 </Form.Group>
 
                                 <Button onClick={handleSubmit} variant="primary" type="submit">
